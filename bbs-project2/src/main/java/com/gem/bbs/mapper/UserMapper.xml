@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离 
+注意：使用mapper代理方法开发，namespace有特殊重要的作用
+-->
+<mapper namespace="com.gem.bbs.mapper.UserMapper">
+
+    <!-- 根据名称查询用户 -->
+    <select id="findUserByLoginname" parameterType="string" resultType="User">
+        select * from user where loginname=#{value}
+    </select>
+
+    <!-- 根据用户id获取用户 -->
+
+
+    <!-- 新增用户 -->
+    <insert id="insertUser" parameterType="User">
+        insert into user(id,loginname,password,username,nickname,avatar,createtime)value (#{id},#{loginname},#{password},#{username},#{nickname},#{avatar},#{createtime})
+    </insert>
+
+    <!-- 根据UserId查询用户的权限信息 -->
+
+</mapper>
+
+

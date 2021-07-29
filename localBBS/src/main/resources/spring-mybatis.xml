@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    <settings>-->
+<!--        &lt;!&ndash;驼峰命名字段映射&ndash;&gt;-->
+<!--        <setting name="mapUnderscoreToCamelCase" value="true" />-->
+<!--        &lt;!&ndash; 打印sql日志 &ndash;&gt;-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING" />-->
+<!--    </settings>-->
+
+    <!--配置别名（entity，pojo）-->
+    <typeAliases>
+        <!--批量设置别名
+            别名：即类的全名称（首字母可大写可小写）
+        -->
+        <package name="com.gem.bbs.entity"></package>
+    </typeAliases>
+
+</configuration>

@@ -1,0 +1,91 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bbs-project:war exploded">
+    <output-path>$PROJECT_DIR$/target/bbs-project</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>bbs-project</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bbs-project" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-all:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-lang:1.5.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.26" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-core:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-config-ogdl:1.5.1" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.4" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-core:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-hash:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-crypto-cipher:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-event:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cache:1.5.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.5.1" />
+          <element id="library" level="project" name="Maven: org.owasp.encoder:encoder:1.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-aspectj:1.5.1" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.9.4" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.4" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-ehcache:1.5.1" />
+          <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.11" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-guice:1.5.1" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:4.2.2" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:25.1-android" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.2" />
+          <element id="library" level="project" name="Maven: org.checkerframework:checker-compat-qual:2.0.0" />
+          <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.1.3" />
+          <element id="library" level="project" name="Maven: com.google.j2objc:j2objc-annotations:1.1" />
+          <element id="library" level="project" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" />
+          <element id="library" level="project" name="Maven: com.google.inject.extensions:guice-multibindings:4.2.2" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.3.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-hazelcast:1.5.1" />
+          <element id="library" level="project" name="Maven: com.hazelcast:hazelcast:3.12.1" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-quartz:1.5.1" />
+          <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.3.2" />
+          <element id="library" level="project" name="Maven: com.zaxxer:HikariCP-java7:2.4.13" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.5.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.3" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.6" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.3" />
+          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.5" />
+          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.19" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.12.1" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.12.1" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.1.0.Final" />
+          <element id="library" level="project" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.4" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.4" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.1" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.62" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/bbs-project/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="bbs-project/web/Web" />
+    </root>
+  </artifact>
+</component>

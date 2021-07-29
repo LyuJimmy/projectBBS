@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离 
+注意：使用mapper代理方法开发，namespace有特殊重要的作用
+-->
+<mapper namespace="com.gem.bbs.mapper.QuestionMapper">
+    <sql id="query_question_clause">
+        <if test="title != null and title != ''">
+            and title like concat('%',#{title},'%')
+        </if>
+    </sql>
+
+    <!-- 保存问题 -->
+    <insert id="insertQuestion" parameterType="Question">
+        insert into question (title,description,coin,user_id,createtime)
+          values (#{title},#{description},#{coin},#{userId},#{createtime})
+    </insert>
+
+    <!--查询集合-->
+    <select id="selectAll" resultType="Question">
+        select * from question
+        <where>
+            <include refid="query_question_clause"></include>
+        </where>
+        limit #{beginPage},#{pageCount}
+    </select>
+
+    <select id="selectList" parameterType="Question" resultType="Question">
+        select * from question
+        <where>
+            <if test="question != null and question.userId != ''">
+                and user_id = #{question.userId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询记录总数 -->
+    <select id="getTotal" parameterType="string" resultType="java.lang.Integer">
+        select count(1) from question
+        <where>
+            <include refid="query_question_clause"></include>
+        </where>
+    </select>
+
+    <!-- 根据主键查询 -->
+    <select id="selectOneByPrimaryKey" parameterType="java.lang.Integer" resultType="Question">
+        select * from question where id = #{value}
+    </select>
+
+    <!--更新问题-->
+    <update id="update" parameterType="Question">
+        update question
+        <set >
+            <if test="title != null" >
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null" >
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="coin != null" >
+                coin = #{coin,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null" >
+                createtime = #{createtime,jdbcType=DATE},
+            </if>
+            <if test="isUp != null" >
+                is_up = #{isUp,jdbcType=CHAR},
+            </if>
+            <if test="isClosed != null" >
+                is_closed = #{isClosed,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from question where id = #{id,jdbcType=INTEGER}
+    </delete>
+</mapper>
+
+

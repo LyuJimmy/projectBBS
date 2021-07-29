@@ -1,0 +1,5 @@
+# 项目排除路径
+/bbs-project/target/
+/bbs-project2/target/
+/localBBS/target/
+/out/

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--shiroFilter名称和web.xml中定义的targetBeanName的value保持一致-->
+    <!-- Shiro 的Web过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <!-- loginUrl认证提交地址，如果没有认证将会请求此地址进行认证，请求此地址将由formAuthenticationFilter进行表单认证 -->
+        <property name="loginUrl" value="/user/login" />
+        <!--登录认证成功，跳转的路径-->
+        <property name="successUrl" value="/index"></property>
+        <property name="unauthorizedUrl" value="/refuse.jsp"></property>
+        <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 退出拦截，请求logout.action执行退出操作 -->
+                /logout = logout
+                <!--对于静态资源可以匿名访问-->
+                /js/** = anon
+                /img/** = anon
+                /css/** = anon
+                /assets/** = anon
+                /index = anon
+
+                <!--指定需要认证的路径-->
+                /user/login = authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm" />
+    </bean>
+
+    <!-- 凭证匹配器 -->
+    <bean id="credentialsMatcher"
+          class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5" />
+        <property name="hashIterations" value="1" />
+    </bean>
+
+    <!-- 自定义 realm -->
+    <bean id="userRealm" class="com.gem.bbs.shiro.UserRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"></property>
+    </bean>
+</beans>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="localBBS:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/localBBS_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="localBBS/web/Web" />
+    </root>
+  </artifact>
+</component>

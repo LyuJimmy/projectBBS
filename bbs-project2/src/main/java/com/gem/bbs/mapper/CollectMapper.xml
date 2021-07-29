@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离 
+注意：使用mapper代理方法开发，namespace有特殊重要的作用
+-->
+<mapper namespace="com.gem.bbs.mapper.CollectMapper">
+    <!-- 根据用户id，问题id查询记录 -->
+    <select id="selectOneByUserIdAndQuestionId" resultType="Collect">
+        select * from collect where user_id = #{userId} and question_id = #{questionId}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="Collect">
+        insert into collect
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="questionId != null" >
+                question_id,
+            </if>
+            <if test="userId != null" >
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="questionId != null" >
+                #{questionId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                #{userId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="Collect">
+        delete from collect where question_id = #{questionId} and user_id = #{userId}
+    </delete>
+</mapper>
+
+

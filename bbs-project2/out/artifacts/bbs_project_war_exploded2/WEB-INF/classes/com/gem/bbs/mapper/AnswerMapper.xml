@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离 
+注意：使用mapper代理方法开发，namespace有特殊重要的作用
+-->
+<mapper namespace="com.gem.bbs.mapper.AnswerMapper">
+
+    <!--根据主键查询-->
+    <select id="selectOneByPrimaryKey" parameterType="integer" resultType="Answer">
+        select * from answer where id = #{value}
+    </select>
+    <!-- 根据问题id查询回复 -->
+    <select id="selectListByQuestionId" parameterType="java.lang.Integer" resultType="Answer">
+        select * from answer where question_id = #{value} order by id desc
+    </select>
+
+    <!-- 保存 -->
+    <insert id="insertAnswer" parameterType="Answer">
+        insert into answer (content,question_id,user_id,createtime) values(#{content},#{questionId},#{userId},#{createtime})
+    </insert>
+
+    <delete id="deleteByQuestionId" parameterType="java.lang.Integer">
+        delete from answer where question_id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <update id="update" parameterType="Answer">
+        update answer
+        <set >
+            <if test="content != null" >
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="questionId != null" >
+                question_id = #{questionId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null" >
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="isAccept != null" >
+                is_accept = #{isAccept,jdbcType=CHAR},
+            </if>
+            <if test="likes != null" >
+                likes = #{likes,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null" >
+                createtime = #{createtime,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
+
+
